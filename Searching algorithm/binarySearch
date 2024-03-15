@@ -1,0 +1,24 @@
+# binary search 
+
+sortedList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+targetValue = 4
+
+def binarySearch(lst, targetValue):
+    low = 0
+    high = len(lst) - 1
+
+    while low <= high:
+        mid = (low + high) // 2  # Use integer division to ensure mid is an integer
+        midValue = lst[mid]
+
+        if targetValue == midValue:
+            return mid
+        elif targetValue < midValue:
+            high = mid - 1
+        else:
+            low = mid + 1
+
+    return "Target not found"
+
+search = binarySearch(sortedList, targetValue)
+print(f"Value: {targetValue} found at index {search+1}" if type(search) == int else search)
